@@ -93,6 +93,26 @@
         <BaseButton msg="Approve" backColor="#673ab7" rounded="true" size="l" icon="atom" iconPos="" inAnim="flyOutText" hoverAnim="flyOutIcon" />
         <BaseButton msg="Accept" backColor="#3f51b5" rounded="true" size="xl" icon="biking" iconPos="right" inAnim="flyOutText" hoverAnim="flyOutIcon" />
       </div>
+    </div>
+    <div class="pageSection">
+      <p class="titleSection">Example with HoverAnimation set <span class="codeExample"> <span class="component">BaseButton</span> hoverAnim="growText" </span> </p>
+      <div class="innerSection">
+        <BaseButton msg="Send" backColor="#f44336" rounded="true"  size="xs" icon="apple-alt" iconPos="right" inAnim="growText" />
+        <BaseButton msg="Send" backColor="#e91e63" rounded="true" size="s" icon="angle-double-left" iconPos="" inAnim="growText" />
+        <BaseButton msg="Submit" backColor="#9c27b0" rounded="true" size="m" icon="archway" iconPos="right" inAnim="growText" />
+        <BaseButton msg="Approve" backColor="#673ab7" rounded="true" size="l" icon="atom" iconPos="" inAnim="growText"  />
+        <BaseButton msg="Accept" backColor="#3f51b5" rounded="true" size="xl" icon="biking" iconPos="right" inAnim="growText" />
+      </div>
+    </div> 
+    <div class="pageSection">
+      <p class="titleSection">Example with HoverAnimation set <span class="codeExample"> <span class="component">BaseButton</span> hoverAnim="growText" </span> </p>
+      <div class="innerSection">
+        <BaseButton msg="Send" backColor="#444" iconBack="#f44336" rounded="true"  size="xs" icon="apple-alt" iconPos="right" inAnim="growText" />
+        <BaseButton msg="Send" backColor="#444" iconBack="#e91e63" rounded="true" size="s" icon="angle-double-left" iconPos="" inAnim="growText" />
+        <BaseButton msg="Submit" backColor="#444" iconBack="#9c27b0" rounded="true" size="m" icon="archway" iconPos="right" inAnim="growText" />
+        <BaseButton msg="Approve" backColor="#444" iconBack="#673ab7" rounded="true" size="l" icon="atom" iconPos="" inAnim="growText"  />
+        <BaseButton msg="Accept" backColor="#444" iconBack="#3f51b5" rounded="true" size="xl" icon="biking" iconPos="right" inAnim="growText" />
+      </div>
     </div> 
   </div>
 </template>

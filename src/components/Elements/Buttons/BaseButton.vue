@@ -1,6 +1,6 @@
 <template>
   <button class="baseButton" :class="[this.btnSize, ('icon_pos_'+this.btnIconPos), this.hoverAnim, inAnim]"  v-bind:style="styleObject">
-    <font-awesome-icon :icon="['fas', btnIcon]" />
+    <font-awesome-icon :icon="['fas', btnIcon]" v-bind:style="iconStyleObj" />
     <p class="btnMsg">
       {{ msg }}
     </p>
@@ -24,6 +24,7 @@ export default {
     rounded: String,
     icon: String,
     iconPos: String,
+    iconBack: String,
     hoverAnim: String,
     inAnim: String
   },
@@ -36,6 +37,9 @@ export default {
         backgroundColor: "#03A9F4",
         color: "white",
         borderRadius: 0,
+      },
+      iconStyleObj: {
+        backgroundColor: "transparent",
       },
       btnSize : "medium",
       btnIcon: null,
@@ -86,7 +90,9 @@ export default {
 
       if(this.iconPos != undefined) {
           this.btnIconPos = this.iconPos;
-          
+      }
+      if(this.iconBack != undefined){
+          this.iconStyleObj.backgroundColor = this.iconBack;
       }
   }  
 };
@@ -95,7 +101,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     button.baseButton {
-        padding: 0.25em .5em;
         border: none;
         position: relative;
         overflow: hidden;
@@ -105,7 +110,6 @@ export default {
         height: max-content;
         display: flex;
         flex-direction: row;
-        gap: .5em;
         align-items: center;
 
         &:before{
@@ -146,6 +150,12 @@ export default {
             margin: 0;
             pointer-events: none;
             z-index: 10;
+            padding: 0.25em .5em;
+            line-height: 1;
+        }
+
+        svg {
+            padding: 0.25em .5em;
         }
     }
 
@@ -179,11 +189,40 @@ export default {
       to { opacity: 1; margin-right: 0%; }
     }
 
+    button.baseButton.growText {
+
+        svg {
+            border-radius: 50%;
+            width: 1em;
+            height: 1em;
+            padding: 0.25em;
+            animation: inGrowSVG 5s;
+            animation-fill-mode: forwards; 
+        }
+
+        p {
+            animation: inGrowText 5s;
+            animation-fill-mode: forwards; 
+        }
+    }
+
+    @keyframes inGrowText {
+      0% { opacity: 0; width: 0; font-size: 0; margin: 0 -.25em; overflow: hidden;}
+      50% { opacity: 0; width: 0; font-size: 0; margin: 0 -.25em; overflow: hidden;}
+      100% { opacity: 1; margin: 0; overflow: hidden;}
+    }
+
+    @keyframes inGrowSVG {
+      0% { transform: rotate(0deg) }
+      50% { transform: rotate(0deg)}
+      100% { transform: rotate(360deg) }
+    }
+
     .baseButton.flyOutIcon {
 
         svg {
             width: 1em;
-            margin-left: -1.5em;
+            margin-left: -2em;
             color: transparent;
             transition: 0.15s ease all;
         }
