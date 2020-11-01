@@ -1,6 +1,6 @@
 export default {
-    name: "BasicImage",
-    props: {
-      src: String
-    }
+  name: "BasicImage",
+  props: {
+    src: String
+  }
 };

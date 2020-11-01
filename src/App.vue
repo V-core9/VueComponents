@@ -1,55 +1,53 @@
 <template>
-  <div>
-    <button v-on:click="addComponent">Add</button>
-    <button v-on:click="closeAllContainers">Close All Containers</button>
-    <RdsContainer v-for="index in editors" 
-      :key="index"
-      v-bind:id="index.id"
-      v-bind:title="index.title"
-      v-bind:subtitle="index.subtitle"
-      v-bind:content="index.content"
-      v-on:clicked="closeRdsContainer"
-    />
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
+      <div class="dropDown">
+        <router-link to="/elements" class="dropTrigger">Elements</router-link>
+        <div class="dropDownItems">
+          <router-link to="/elements/buttons">Buttons</router-link>
+          <router-link to="/elements/inputs">Inputs</router-link>
+        </div>
+      </div>
+    </div>
+    <router-view />
   </div>
 </template>
 
-<script>
-import RdsContainer from "./components/RdsContainer/RdsContainer.vue";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  data() {
-    return {
-      editors: []
-    };
-  },
-  components: {
-    RdsContainer
-  },
-  methods: {
-    addComponent() {
-      var d = new Date();
-      var n = d.getTime();
-      var newEditor = {"id": parseInt(n), "title":"Demo Title Example", "subtitle": "Demo subtitle yeaaa", "content": "Yo Yo Many things will be going inside of this spaceYo Yo Many things will be going inside of this spaceYo Yo Many things will be going inside of this space"};
-      this.editors.push(newEditor);
-    },
-    closeRdsContainer(id) {
-      console.log('closing container  '+ id);
-      this.editors = this.editors.filter(single => single.id !== id);
-    },
-    closeAllContainers() {
-      this.editors = [];
-      //this.editors.forEach(function myFunction(item) {
-      //              item.title = "YEEAAAAAA";
-      //            });
+#nav {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1em;
+
+  .dropDown {
+    display: flex;
+    flex-direction: column;
+
+    .dropDownItems {
+      display: flex;
+      flex-direction: column;
     }
   }
-};
-</script>
+  
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-<style>
-* {
-  padding: 0;
-  margin: 0;
-  font-family: monospace;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
