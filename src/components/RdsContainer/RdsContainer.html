@@ -1,0 +1,21 @@
+<div class="rdsContainer" v-bind:style="styleObject">
+    <div class="rdsHeader" >
+        <div class="headerInner">
+            <h2>{{ title }}</h2>
+            <p>{{ subtitle }}</p>
+        </div>
+        <div class="headerOptions">
+            <button @clicked="alert('headerOptions')">:</button>
+        </div>
+    </div>
+    <div class="rdsInner">
+        {{ content }}
+        <br>
+        <NameImput msg="some random message" />
+    </div>
+    <div class="rdsFooter">
+        <button @click="onClickButton">Cancel</button>
+        <button @click="onClickButton">Cancel</button>
+        <button @click="onClickButton">Cancel</button>
+    </div>
+</div>

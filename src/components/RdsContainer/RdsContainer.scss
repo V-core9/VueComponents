@@ -1,0 +1,71 @@
+.rdsContainer {
+    background: whitesmoke;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .rdsHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: #673AB7;
+        color: white;
+        padding: 0.5em 1em;
+
+        button {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 2px white;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.15s ease all;
+
+            &:hover {
+                box-shadow: 0 0 4px white;
+                transition: 0.35s ease all;
+                background: rgba(255,255,255,0.1);
+            }
+
+            &:active {
+                box-shadow: 0 0 2px white;
+                transition: 0.05s ease all;
+                background: rgba(0,0,0,0.1);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .rdsInner {
+        background: green;
+    }
+
+    .rdsFooter {
+        display: flex;
+        
+        button{
+            flex: 1;
+            display: flex;
+            padding: 0.5em 1em;
+            border: none;
+            color: white; 
+            background: orange;
+            cursor: pointer;
+
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
