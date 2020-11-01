@@ -1,7 +1,7 @@
 <template>
-  <button class="baseButton" :class="[this.btnSize, ('icon_pos_'+this.btnIconPos), this.hoverAnim]"  v-bind:style="styleObject">
+  <button class="baseButton" :class="[this.btnSize, ('icon_pos_'+this.btnIconPos), this.hoverAnim, inAnim]"  v-bind:style="styleObject">
+    <font-awesome-icon :icon="['fas', btnIcon]" />
     <p class="btnMsg">
-      <font-awesome-icon :icon="['fas', btnIcon]" />
       {{ msg }}
     </p>
   </button>
@@ -24,7 +24,8 @@ export default {
     rounded: String,
     icon: String,
     iconPos: String,
-    hoverAnim: String
+    hoverAnim: String,
+    inAnim: String
   },
   components: {
       FontAwesomeIcon
@@ -102,6 +103,10 @@ export default {
         transition: 0.1s linear all;
         box-shadow: 0 0px 5px rgba(0,0,0,0.25);
         height: max-content;
+        display: flex;
+        flex-direction: row;
+        gap: .5em;
+        align-items: center;
 
         &:before{
             content: " ";
@@ -141,19 +146,37 @@ export default {
             margin: 0;
             pointer-events: none;
             z-index: 10;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            gap: .5em;
-            align-items: center;
+        }
+    }
+
+    button.baseButton.flyOutText:not(.icon_pos_right) {
+        
+        p {
+            animation: flyOutText 3s;
+            animation-fill-mode: forwards;
         }
     }
 
     button.baseButton.icon_pos_right {
+            flex-direction: row-reverse;    
+    }
 
-        p.btnMsg {
-        flex-direction: row-reverse;
+    button.baseButton.flyOutText.icon_pos_right {
+
+        p {
+            animation: flyOutTextRight 3s;
+            animation-fill-mode: forwards;
         }
+    }
+
+    @keyframes flyOutText {
+      from { opacity: 0; margin-left: -100%; }
+      to { opacity: 1; margin-left: 0%; }
+    }
+
+    @keyframes flyOutTextRight {
+      from { opacity: 0; margin-right: -100%; }
+      to { opacity: 1; margin-right: 0%; }
     }
 
     .baseButton.flyOutIcon {
