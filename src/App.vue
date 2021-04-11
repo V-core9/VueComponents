@@ -1,12 +1,21 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <public-navigation />
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+import PublicNavigation from '@/components/PublicNavigation.vue'
+
+export default {
+  components: {
+    PublicNavigation
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
